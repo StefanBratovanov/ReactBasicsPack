@@ -1,0 +1,67 @@
+.events-container{
+    height: 1500px;
+}
+
+.events-section {
+    position: relative;
+    overflow: hidden;
+    padding: 60px 20px 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    margin: 30px 40px;
+    box-shadow: 0 10px 40px -14px rgba(135, 144, 158, 0.6), 0 10px 40px -10px rgba(135, 144, 158, 0.6);
+    max-width: 400px;
+}
+
+.events-h3 {
+    background-color: rgba(80, 103, 124, 0.73);
+    margin-top: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+input,
+button {
+    border: 1px solid #aaa;
+    padding: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+button {
+    background-color: rgba(80, 103, 124, 0.73);
+    border-color: #7b90a1;
+    color: #fff;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.p-mouse-down, .p-scroll {
+    margin-top: 0;
+}
+
+.p-clicked, .submitted-value, .p-scroll {
+    margin-bottom: 0;
+}
+
+.button-submit {
+    margin-left: 10px;
+}
+
+.input-value {
+    margin :0px ;
+}
+
+.x-coordinate, .y-coordinate {
+    display: inline-block;
+}
+
+.y-coordinate {
+    float: right;
+    margin-right: 150px;
+}
