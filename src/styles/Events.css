@@ -45,7 +45,7 @@ button {
     margin-top: 0;
 }
 
-.p-clicked, .submitted-value, .p-scroll {
+.p-clicked, .submitted-value, .p-scroll, .submitted-times{
     margin-bottom: 0;
 }
 
@@ -64,4 +64,27 @@ button {
 .y-coordinate {
     float: right;
     margin-right: 150px;
+}
+
+label {
+    display: block;
+}
+
+.checkbox-terms{
+    margin-left:0;
+    position: relative;
+    top: 1px;
+}
+
+.form-button {
+    margin-top: 5px;
+}
+
+.submitted-times{
+    margin-top: 5px;
+}
+
+.error{
+    display: block;
+    color: coral;
 }
