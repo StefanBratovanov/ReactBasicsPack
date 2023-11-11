@@ -2,7 +2,7 @@
     height: 1500px;
 }
 
-.events-section {
+.app-section {
     position: relative;
     overflow: hidden;
     padding: 60px 20px 20px;
@@ -13,7 +13,7 @@
     max-width: 400px;
 }
 
-.events-h3 {
+.app-h3 {
     background-color: rgba(80, 103, 124, 0.73);
     margin-top: 0;
     position: absolute;
@@ -66,7 +66,7 @@ button {
     margin-right: 150px;
 }
 
-label {
+.submit-label {
     display: block;
 }
 

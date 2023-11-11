@@ -68,8 +68,8 @@ const FormValidation = () => {
 
     return (
         <>
-            <section className='events-section'>
-                <h3 className='events-h3'>Form Validation </h3>
+            <section className='app-section'>
+                <h3 className='app-h3'>Form Validation </h3>
                 <form onSubmit={handleOnSubmit}>
                     <span className='error'>{validationErrors['firstName']}</span>
                     <label>
@@ -92,7 +92,7 @@ const FormValidation = () => {
                         />
                     </label>
                     <span className='error'>{validationErrors['acceptTerms']}</span>
-                    <label>
+                    <label className='submit-label'>
                         <input
                             type='checkbox'
                             name='acceptTerms'

@@ -21,14 +21,14 @@ const MovementEvents = () => {
 
     return (
         <>
-            <section className='events-section' onMouseMove={handleOnMouseMove}>
-                <h3 className='events-h3'>Mouse Coordinates</h3>
+            <section className='app-section' onMouseMove={handleOnMouseMove}>
+                <h3 className='app-h3'>Mouse Coordinates</h3>
                 <div className='x-coordinate'>x: {mouseX}</div>
                 <div className='y-coordinate'>y: {mouseY}</div>
             </section>
 
-            <section className='events-section'>
-                <h3 className='events-h3'>Window scroll position</h3>
+            <section className='app-section'>
+                <h3 className='app-h3'>Window scroll position</h3>
                 <p className='p-scroll'>Window scroll Y: {windowScrollY}</p>
             </section>
         </>

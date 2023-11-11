@@ -35,8 +35,8 @@ const InputEvents = () => {
 
     return (
         <>
-            <section className='events-section'>
-                <h3 className='events-h3'>Mouse Events</h3>
+            <section className='app-section'>
+                <h3 className='app-h3'>Mouse Events</h3>
                 <button
                     onClick={handleClick}
                     onMouseDown={handleOnMouseDown}
@@ -46,8 +46,8 @@ const InputEvents = () => {
                 <p className='p-clicked'>Button clicked: {buttonClicked}</p>
             </section>
 
-            <section className='events-section'>
-                <h3 className='events-h3'>Input change Events</h3>
+            <section className='app-section'>
+                <h3 className='app-h3'>Input change Events</h3>
                 <input
                     type="text"
                     value={inputText}
@@ -55,8 +55,8 @@ const InputEvents = () => {
                 <p className='input-value'>Input value here: {inputText}</p>
             </section>
             
-            <section className='events-section'>
-                <h3 className='events-h3'>Form submit events</h3>
+            <section className='app-section'>
+                <h3 className='app-h3'>Form submit events</h3>
                 <form onSubmit={handleFormSubmit}>
                     <input
                         type='text'
