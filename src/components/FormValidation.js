@@ -2,30 +2,47 @@ import React from 'react'
 import { useState } from 'react'
 
 const FormValidation = () => {
-    const [firstName, setFirstName] = useState("")
-    const [feedback, setFeedback] = useState("")
-    const [acceptedTerms, setAcceptedTerms] = useState(false)
+    const [form, setForm] = useState({
+        firstName: '',
+        feedback: '',
+        acceptTerms: false
+    })
+    // const [firstName, setFirstName] = useState("")
+    // const [feedback, setFeedback] = useState("")
+    // const [acceptedTerms, setAcceptedTerms] = useState(false)
+
     const [validationErrors, setValidationErrors] = useState({})
     const [submittedTimes, setSubmittedTimes] = useState(0)
-
+    
     const handleOnChange = (e) => {
-        if (e.target.name === 'firstName') {
-            setFirstName(e.target.value)
-            validationErrors['firstName'] = ''
-        }
-        if (e.target.name === 'feedback') {
-            setFeedback(e.target.value)
-            validationErrors['feedback'] = ''
-        }
+        let value = e.target.value
         if (e.target.name === 'acceptTerms') {
-            setAcceptedTerms(!acceptedTerms)
-            validationErrors['acceptTerms'] = ''
+            value = !form[e.target.name]
         }
+
+        setForm({
+            ...form,
+            [e.target.name]: value
+        })
+
+        validationErrors[e.target.name] = ''
+
+        // if (e.target.name === 'firstName') {
+        //     setFirstName(e.target.value)
+        //     validationErrors['firstName'] = ''
+        // }
+        // if (e.target.name === 'firstName') {
+        //     setFeedback(e.target.value)
+        //     validationErrors['feedback'] = ''
+        // }
+        // if (e.target.name === 'acceptTerms') {
+        //     setAcceptedTerms(!acceptedTerms)
+        //     validationErrors['acceptTerms'] = ''
+        // }
     }
 
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        
         const isFormValid = validateFields()
         if (isFormValid) {
             setSubmittedTimes(submittedTimes + 1)
@@ -34,15 +51,13 @@ const FormValidation = () => {
 
     function validateFields() {
         const errors = {}
-        if (!firstName) {
+        if (!form.firstName) {
             errors['firstName'] = 'First Name cannot be empty'
         }
-
-        if (!firstName) {
+        if (!form.feedback) {
             errors['feedback'] = 'feedback cannot be empty'
         }
-
-        if (!acceptedTerms) {
+        if (!form.acceptTerms) {
             errors['acceptTerms'] = 'terms should be accepted'
         }
 
@@ -56,32 +71,32 @@ const FormValidation = () => {
             <section className='events-section'>
                 <h3 className='events-h3'>Form Validation </h3>
                 <form onSubmit={handleOnSubmit}>
+                    <span className='error'>{validationErrors['firstName']}</span>
                     <label>
-                        <span className='error'>{validationErrors['firstName']}</span>
                         <input
                             type='text'
                             name='firstName'
                             placeholder='first name'
-                            value={firstName}
+                            value={form.firstName}
                             onChange={handleOnChange}
                         />
                     </label>
+                    <span className='error'>{validationErrors['feedback']}</span>
                     <label>
-                        <span className='error'>{validationErrors['feedback']}</span>
                         <input
                             type='text'
                             name='feedback'
                             placeholder='give feedback'
-                            value={feedback}
+                            value={form.feedback}
                             onChange={handleOnChange}
                         />
                     </label>
+                    <span className='error'>{validationErrors['acceptTerms']}</span>
                     <label>
-                        <span className='error'>{validationErrors['acceptTerms']}</span>
                         <input
                             type='checkbox'
                             name='acceptTerms'
-                            checked={acceptedTerms}
+                            checked={form.acceptTerms}
                             onChange={handleOnChange}
                             className='checkbox-terms'
                         /> I accept the terms
