@@ -51,7 +51,7 @@
 
 .new-grocery {
   margin-top: 10px;
-  width: 250px;
+  width: 240px;
 }
 
 .new-grocery-button {
@@ -63,10 +63,9 @@ li .delete-button {
   visibility: hidden;
   cursor: pointer;
   margin: 5px;
-  margin-left: 230px;
 }
 
-.li-shopping-item {
+.shopping-list-label{
   display: flex;
 }
 
@@ -83,8 +82,8 @@ li .delete-button {
   text-align: left;
   text-transform: none;
   color: black;
+  padding-top: 12px;
 }
-
 
 @keyframes App-logo-spin {
   from {

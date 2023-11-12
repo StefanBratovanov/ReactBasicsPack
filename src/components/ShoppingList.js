@@ -1,17 +1,29 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const ShoppingList = () => {
-    const [shoppingListItems, setShoppingListItems] = useState({
-        groceryItems: [
+    let initailGroceries = JSON.parse(sessionStorage.getItem('groceryItems'))
+    if (initailGroceries === null || Object.keys(initailGroceries).length === 0) {
+        initailGroceries = [
             { name: "Bananas", id: "id-1", completed: false },
             { name: "Meat", id: "id-2", completed: false },
             { name: "Wine", id: "id-3", completed: false }
         ]
+    }
+
+    const [shoppingListItems, setShoppingListItems] = useState({
+        groceryItems: initailGroceries
     })
 
     const [newGrocery, setNewGrocery] = useState('')
     const [validationErrors, setValidationErrors] = useState({})
+
+    const prevGroceryItemsRef = useRef()
+    useEffect(() => {
+        prevGroceryItemsRef.current = shoppingListItems.groceryItems
+    }, [])
+
+    addGroceryItemsToSessionStorageIfUpdated()
 
     const handleOnChange = (e) => {
         setNewGrocery(e.target.value)
@@ -46,14 +58,13 @@ const ShoppingList = () => {
             const newShoppingItem = {
                 name: newGrocery,
                 completed: false,
-                id: 'id-' + new Date()
+                id: 'id-' + Date.now()
             }
-    
+
             let exisitngItems = [...shoppingListItems.groceryItems]
-    
             if (!exisitngItems.some(l => l.name === newGrocery)) {
                 const newGroceryList = [...exisitngItems, newShoppingItem]
-    
+
                 setShoppingListItems({ groceryItems: newGroceryList })
             }
 
@@ -71,8 +82,16 @@ const ShoppingList = () => {
         return Object.keys(errors).length === 0;
     }
 
-    const groceries = shoppingListItems.groceryItems
+    function addGroceryItemsToSessionStorageIfUpdated() {
+        const prevGroceryItems = JSON.stringify(prevGroceryItemsRef.current)
+        const currentGroceryItems = JSON.stringify(shoppingListItems.groceryItems)
 
+        if (prevGroceryItems !== currentGroceryItems) {
+            sessionStorage.setItem('groceryItems', currentGroceryItems)
+        }
+    }
+
+    const groceries = shoppingListItems.groceryItems
 
     return (
         <>
@@ -84,9 +103,10 @@ const ShoppingList = () => {
                         groceries.map((g, index) => {
                             return (
                                 <li key={index} className="li-shopping-item">
-                                    <label>
+                                    <label className="shopping-list-label">
                                         <input
                                             type="checkbox"
+                                            checked={g.completed}
                                             className='checkbox-shopping-list'
                                             itemindex={index}
                                             onChange={handleOnCompletedToggle}
