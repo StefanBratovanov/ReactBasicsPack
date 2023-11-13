@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Card = () => {
+const SimpleCard = () => {
     const initailState = {
         firstName: 'My Nombre',
         initials: 'MN',
@@ -35,4 +35,4 @@ const Card = () => {
     )
 }
 
-export default Card;
+export default SimpleCard;

@@ -1,6 +1,6 @@
 import React from "react";
-import InputEvents from "./InputEvents";
-import MovementEvents from "./MovementEvents";
+import InputEvents from "./InputEvents.js";
+import MovementEvents from "./MovementEvents.js";
 
 const Events = () => {
     return (

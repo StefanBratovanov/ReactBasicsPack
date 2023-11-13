@@ -8,7 +8,7 @@ body {
     border-radius: 6px;
     overflow: hidden;
     max-width: 300px;
-    margin: 100px auto;
+    margin: 50px auto;
     box-shadow: 0 10px 40px -14px rgba(135, 144, 158, 0.6), 0 10px 40px -10px rgba(135, 144, 158, 0.6);
   }
   
@@ -16,6 +16,7 @@ body {
     background-color: rgba(80, 103, 124, 0.73);
     padding: 14px 18px;
     font-size: 18px;
+    position: relative;
   }
   
   .card-header span {
@@ -46,6 +47,30 @@ body {
     font-size: inherit;
     vertical-align: middle;
     margin: 0;
+  }
+
+  .card-header .favorite {
+    position: absolute;
+    color: #fff;
+    font-size: 30px;
+    line-height: 1;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+  }
+
+  .card-header .favorite:hover {
+    color: gold;
+  }
+
+  .card-header .favorite.active:after {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: gold;
   }
   
   main {
