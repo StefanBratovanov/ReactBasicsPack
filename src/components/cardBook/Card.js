@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ contact }) => {
+const Card = ({ contact, index, handleFavoriteClick }) => {
     const activeClass = contact.favorite ? 'active' : ''
 
     return (
@@ -8,7 +8,7 @@ const Card = ({ contact }) => {
             <header className='card-header'>
                 <span initials={contact.initials}></span>
                 <h2>{contact.name}</h2>
-                <div className={`favorite ${activeClass}`}>
+                <div className={`favorite ${activeClass}`} onClick={() => handleFavoriteClick(index)}>
                     &#9734;
                 </div>
             </header>

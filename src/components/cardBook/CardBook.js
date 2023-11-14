@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Card from './Card.js'
 
 const CardBook = () => {
-    const cardBookInitialState = {
+    const cardsInitialState = {
         contacts: [
             {
                 name: 'Allen Iverson',
@@ -28,15 +28,24 @@ const CardBook = () => {
         ]
     }
 
-    const [cardBook] = useState(cardBookInitialState)
-    const { contacts } = cardBook
+    const [cards, setCards] = useState(cardsInitialState)
+    const handleFavoriteClick = (index) => {
+        const newContacts = [...cards.contacts]
+        newContacts[index] = { ...newContacts[index], favorite: !newContacts[index].favorite }
+        setCards({ contacts: newContacts })
+    }
 
+    const { contacts } = cards
     return (
         <>
             {!contacts.length && <p>No contacts</p>}
             {contacts.map((contact, i) => {
                 return (
-                    <Card contact={contact} key={i}/>
+                    <Card key={i}
+                        contact={contact}
+                        index={i}
+                        handleFavoriteClick={handleFavoriteClick}
+                    />
                 )
             })}
         </>
