@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
-import SimpleCard from './components/SimpleCard.js';
-import Events from './components/events/Events.js'
-import FormValidation from './components/FormValidation.js';
-import ShoppingList from './components/ShoppingList.js';
-import CardBook from './components/cardBook/CardBook.js';
+import SimpleCard from './components/SimpleCard';
+import Events from './components/events/Events'
+import FormValidation from './components/FormValidation';
+import ShoppingList from './components/ShoppingList';
+import CardBook from './components/cardBook/CardBook';
+import StarWars from './components/starWars/StarWars';
 import './App.css';
 import './styles/Card.css'
 import './styles/Events.css'
@@ -18,13 +19,17 @@ const App = () => {
           <li className="nav-li"><Link to="/FormValidation">Form Validation</Link></li>
           <li className="nav-li"><Link to="/ShoppingList">Shopping List</Link></li>
           <li className="nav-li"><Link to="/CardBook">Card Book</Link></li>
+          <li className="nav-li"><Link to="/StarWars">Star Wars</Link></li>
         </ul>
         <Switch>
-          <Route exact path="/Cards" component={SimpleCard} />
+          <Route exact path="/Cards" component={SimpleCard}>
+            <SimpleCard />
+          </Route>
           <Route exact path="/Events" component={Events} />
           <Route exact path="/FormValidation" component={FormValidation}/>
           <Route exact path="/ShoppingList" component={ShoppingList}/>
           <Route exact path="/CardBook" component={CardBook}/>
+          <Route exact path="/StarWars" component={StarWars}/>
         </Switch>
       </Router>
     </div>

@@ -85,6 +85,10 @@ li .delete-button {
   padding-top: 12px;
 }
 
+.star-wars-h2, .star-wars-ul, .vehicle {
+ text-align: center;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
